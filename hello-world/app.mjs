@@ -15,8 +15,11 @@ import axios from "axios";
 
 export const lambdaHandler = async (event, context) => {
   try {
+    console.info("Start lambda handler");
     const response = await axios.get("http://httpbin.org/ip");
     const ip = response.data.origin;
+
+    console.log("Service httpbin returned with successfully");
 
     return {
       statusCode: 200,
